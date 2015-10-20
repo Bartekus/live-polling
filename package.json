@@ -1,0 +1,24 @@
+{
+  "name": "live-polling",
+  "version": "0.0.1",
+  "description": "Live Polling App that allows speakers to poll audience members",
+  "main": "app-server.js",
+  "scripts": {
+    "prestart": "webpack",
+    "start": "node app-server.js"
+  },
+  "keywords": [
+    "polling"
+  ],
+  "dependencies": {
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "bootstrap": "^3.3.5",
+    "express": "^4.13.3",
+    "react": "^0.14.0",
+    "webpack": "^1.12.2"
+  },
+  "devDependencies": {},
+  "author": "Bartek Kus",
+  "license": "MIT"
+}

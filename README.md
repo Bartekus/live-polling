@@ -68,6 +68,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.1.0 Added socket disconnect callback/adjusted app-server to reflect this along with App logic adjustment
 * 0.0.3 Modified the App to pass the connection state to the client and adjusted Header component to display it
 * 0.0.2 Added socket.io for server and client with connection logging callback /added header component with dynamic title
 * 0.0.1 Basic structure, dependencies and functionality implemented

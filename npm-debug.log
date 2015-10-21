@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/Users/Bart/.node/bin/npm', 'start' ]
+2 info using npm@3.3.4
+3 info using node@v4.1.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle live-polling@0.0.3~prestart: live-polling@0.0.3
+6 verbose lifecycle live-polling@0.0.3~prestart: unsafe-perm in lifecycle true
+7 verbose lifecycle live-polling@0.0.3~prestart: PATH: /Users/Bart/.node/lib/node_modules/npm/bin/node-gyp-bin:/Users/Bart/Dev/PROJECTS/live-polling/node_modules/.bin:/Users/Bart/.rvm/gems/ruby-2.2.2/bin:/Users/Bart/.rvm/gems/ruby-2.2.2@global/bin:/Users/Bart/.rvm/rubies/ruby-2.2.2/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/gems/ruby-2.2.2/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/gems/ruby-2.2.2@global/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/rubies/ruby-2.2.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin
+8 verbose lifecycle live-polling@0.0.3~prestart: CWD: /Users/Bart/Dev/PROJECTS/live-polling
+9 silly lifecycle live-polling@0.0.3~prestart: Args: [ '-c', 'webpack' ]
+10 silly lifecycle live-polling@0.0.3~prestart: Returned: code: 0  signal: null
+11 info lifecycle live-polling@0.0.3~start: live-polling@0.0.3
+12 verbose lifecycle live-polling@0.0.3~start: unsafe-perm in lifecycle true
+13 verbose lifecycle live-polling@0.0.3~start: PATH: /Users/Bart/.node/lib/node_modules/npm/bin/node-gyp-bin:/Users/Bart/Dev/PROJECTS/live-polling/node_modules/.bin:/Users/Bart/.rvm/gems/ruby-2.2.2/bin:/Users/Bart/.rvm/gems/ruby-2.2.2@global/bin:/Users/Bart/.rvm/rubies/ruby-2.2.2/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/gems/ruby-2.2.2/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/gems/ruby-2.2.2@global/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/rubies/ruby-2.2.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/Bart/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin
+14 verbose lifecycle live-polling@0.0.3~start: CWD: /Users/Bart/Dev/PROJECTS/live-polling
+15 silly lifecycle live-polling@0.0.3~start: Args: [ '-c', 'node app-server.js' ]
+16 silly lifecycle live-polling@0.0.3~start: Returned: code: 1  signal: null
+17 info lifecycle live-polling@0.0.3~start: Failed to exec start script
+18 verbose stack Error: live-polling@0.0.3 start: `node app-server.js`
+18 verbose stack Exit status 1
+18 verbose stack     at EventEmitter.<anonymous> (/Users/Bart/.node/lib/node_modules/npm/lib/utils/lifecycle.js:233:16)
+18 verbose stack     at emitTwo (events.js:87:13)
+18 verbose stack     at EventEmitter.emit (events.js:172:7)
+18 verbose stack     at ChildProcess.<anonymous> (/Users/Bart/.node/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+18 verbose stack     at emitTwo (events.js:87:13)
+18 verbose stack     at ChildProcess.emit (events.js:172:7)
+18 verbose stack     at maybeClose (internal/child_process.js:818:16)
+18 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+19 verbose pkgid live-polling@0.0.3
+20 verbose cwd /Users/Bart/Dev/PROJECTS/live-polling
+21 error Darwin 14.5.0
+22 error argv "/usr/local/bin/node" "/Users/Bart/.node/bin/npm" "start"
+23 error node v4.1.2
+24 error npm  v3.3.4
+25 error code ELIFECYCLE
+26 error live-polling@0.0.3 start: `node app-server.js`
+26 error Exit status 1
+27 error Failed at the live-polling@0.0.3 start script 'node app-server.js'.
+27 error This is most likely a problem with the live-polling package,
+27 error not with npm itself.
+27 error Tell the author that this fails on your system:
+27 error     node app-server.js
+27 error You can get their info via:
+27 error     npm owner ls live-polling
+27 error There is likely additional logging output above.
+28 verbose exit [ 1, true ]

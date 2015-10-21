@@ -17,6 +17,12 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 		console.log("Disconnected: %s sockets remaining.", connections.length); //log the leftovers connections
 	});
 
+	socket.emit('welcome', {
+		title: title
+	});
+
+
+
 	connections.push(socket);  //keeping track of connected socked
 	console.log("Connected: %s sockets", connections.length);  //log the current number of connections
 });

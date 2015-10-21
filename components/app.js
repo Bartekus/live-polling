@@ -33,11 +33,11 @@ var APP = React.createClass({
 		this.setState({ title: serverState.title });
 	},
 
-	render() {
+	render() { // instead of passing individual states as with the header, we'll pass the whole state using {...this.state}
 		return (
 			<div>
 				<Header title={this.state.title} status={this.state.status} />
-				<RouteHandler />
+				<RouteHandler {...this.state} />
 			</div>
 		);
 	}

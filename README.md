@@ -27,6 +27,7 @@ Implementing a live react.js server and integrating few interesting technologies
 .
 ├── /components/         # Build Directory
 │   ├── /parts/          # Parts Directory
+│   │   ├── /Display.js  # Display Module
 │   │   └── /Header.js   # Header Source
 │   ├── /App.js          # App's Main Source
 │   ├── /Audience.js     # App's Default Path Source
@@ -71,6 +72,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.7 Added 404 page and custom Display module that engages when client is connected to the server
 * 0.0.6 Added react-router / Added Audience, Board & Speaker components / Added router with routes to app-client / Refactored to stable release
 * 0.0.5 Added welcome method to the App to pass the title down to the client
 * 0.0.4 Added socket disconnect callback/adjusted app-server to reflect this along with App logic adjustment

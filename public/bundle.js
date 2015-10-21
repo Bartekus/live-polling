@@ -19602,20 +19602,26 @@
 	var APP = React.createClass({
 		displayName: 'APP',
 
+		getInitialState: function getInitialState() {
+			return {
+				status: 'disconnected'
+			};
+		},
+
 		componentWillMount: function componentWillMount() {
 			this.socket = io('http://localhost:3000');
 			this.socket.on('connect', this.connect);
 		},
 
 		connect: function connect() {
-			alert("Connected: " + this.socket.id);
+			this.setState({ status: 'connected' });
 		},
 
 		render: function render() {
 			return React.createElement(
 				'div',
 				null,
-				React.createElement(Header, { title: 'New Header' })
+				React.createElement(Header, { title: 'New Header', status: this.state.status })
 			);
 		}
 	});
@@ -26961,15 +26967,30 @@
 			title: React.PropTypes.string.isRequired //Requiring title to be present
 		},
 
+		getDefaultProps: function getDefaultProps() {
+			return {
+				status: 'disconnected'
+			};
+		},
+
 		render: function render() {
 			//Adding dynamic title
 			return React.createElement(
 				'header',
-				null,
+				{ className: 'row' },
 				React.createElement(
-					'h1',
-					null,
-					this.props.title
+					'div',
+					{ className: 'col-xs-10' },
+					React.createElement(
+						'h1',
+						null,
+						this.props.title
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'col-xs-2' },
+					React.createElement('span', { id: 'connection-status', className: this.props.status })
 				)
 			);
 		}

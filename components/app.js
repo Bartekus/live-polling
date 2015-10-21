@@ -1,4 +1,7 @@
 var React = require('react');
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
+
 var io = require('socket.io-client');
 var Header = require('./parts/Header');
 
@@ -26,17 +29,19 @@ var APP = React.createClass({
 		this.setState({ status: 'disconnected' });
 	},
 
-	welcome() {
+	welcome(serverState) {
 		this.setState({ title: serverState.title });
 	},
 
 	render() {
 		return (
 			<div>
-			  <Header title={this.state.title} status={this.state.status} />
-		 </div>
+				<Header title={this.state.title} status={this.state.status} />
+				<RouteHandler />
+			</div>
 		);
 	}
+
 });
 
 module.exports = APP;

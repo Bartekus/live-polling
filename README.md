@@ -28,7 +28,10 @@ Implementing a live react.js server and integrating few interesting technologies
 ├── /components/         # Build Directory
 │   ├── /parts/          # Parts Directory
 │   │   └── /Header.js   # Header Source
-│   └── /App.js          # Main App Source
+│   ├── /App.js          # App's Main Source
+│   ├── /Audience.js     # App's Default Path Source
+│   ├── /Board.js        # App's Score Board Path Source
+│   └── /Speaker.js      # App's Speaker Path Source
 ├── /node_modules        # Dependencies Source
 ├── /public/             # Static Files Directory
 │   ├── /bundle.js       # App's Bundled JavaScript
@@ -68,8 +71,9 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
-* 0.1.1 Added welcome method to the App to pass the title down to the client
-* 0.1.0 Added socket disconnect callback/adjusted app-server to reflect this along with App logic adjustment
+* 0.0.6 Added react-router / Added Audience, Board & Speaker components / Added router with routes to app-client / Refactored to stable release
+* 0.0.5 Added welcome method to the App to pass the title down to the client
+* 0.0.4 Added socket disconnect callback/adjusted app-server to reflect this along with App logic adjustment
 * 0.0.3 Modified the App to pass the connection state to the client and adjusted Header component to display it
 * 0.0.2 Added socket.io for server and client with connection logging callback /added header component with dynamic title
 * 0.0.1 Basic structure, dependencies and functionality implemented

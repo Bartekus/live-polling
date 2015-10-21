@@ -26,7 +26,9 @@ Implementing a live react.js server and integrating few interesting technologies
 ```
 .
 ├── /components/         # Build Directory
-│   └── /app.js          # Main App Source
+│   ├── /parts/          # Parts Directory
+│   │   └── /Header.js   # Header Source
+│   └── /App.js          # Main App Source
 ├── /node_modules        # Dependencies Source
 ├── /public/             # Static Files Directory
 │   ├── /bundle.js       # App's Bundled JavaScript
@@ -66,7 +68,8 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
-0.0.1 Basic structure, dependencies and functionality implemented
+* 0.0.2 Added socket.io for server and client with connection logging callback /added header component with dynamic title
+* 0.0.1 Basic structure, dependencies and functionality implemented
 
 ## Tests
 

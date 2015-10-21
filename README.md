@@ -73,6 +73,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.9 Added emitter for use by the Join Form module /App and app-server have been configured to reflect this 
 * 0.0.8 Added Join form module for use by Display 
 * 0.0.7 Added 404 page and custom Display module that engages when client is connected to the server
 * 0.0.6 Added react-router / Added Audience, Board & Speaker components / Added router with routes to app-client / Refactored to stable release

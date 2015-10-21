@@ -18,6 +18,10 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 		console.log("Disconnected: %s sockets remaining.", connections.length); //log the leftovers connections
 	});
 
+	socket.on('join', function(payload) {
+		console.log("Audience Joined: %s", payload.name);
+	});
+
 	socket.emit('welcome', {
 		title: title
 	});

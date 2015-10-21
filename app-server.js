@@ -19,6 +19,11 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 	});
 
 	socket.on('join', function(payload) {
+		var newMember = {
+			id: this.id,
+			name: payload.name
+		}; //associating the socket id with the join payload
+		this.emit('joined', newMember); //emits this event back to clients listening
 		console.log("Audience Joined: %s", payload.name);
 	});
 

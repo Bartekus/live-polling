@@ -10,7 +10,8 @@ var APP = React.createClass({
 	getInitialState() {
 		return {
 			status: 'disconnected',
-			title: ''
+			title: '',
+			member: {}
 		}
 	},
 
@@ -19,6 +20,11 @@ var APP = React.createClass({
 		this.socket.on('connect', this.connect);
 		this.socket.on('disconnect', this.disconnect);
 		this.socket.on('welcome', this.welcome);
+		this.socket.on('joined', this.joined);
+	},
+
+	emit(eventName, payload) {
+    this.socket.emit(eventName, payload);
 	},
 
 	connect() {
@@ -33,11 +39,15 @@ var APP = React.createClass({
 		this.setState({ title: serverState.title });
 	},
 
+	joined(member) {
+		this.setState({ member: member });
+	},
+
 	render() { // instead of passing individual states as with the header, we'll pass the whole state using {...this.state}
 		return (
 			<div>
 				<Header title={this.state.title} status={this.state.status} />
-				<RouteHandler {...this.state} />
+				<RouteHandler emit={this.emit} {...this.state} />
 			</div>
 		);
 	}

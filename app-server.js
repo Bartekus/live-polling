@@ -8,6 +8,12 @@ var audience = [];
 var speaker = {};
 var questions = require('./app-questions');
 var currentQuestion = false;
+var results = {
+	a: 0,
+  b: 0,
+	c: 0,
+	d: 0
+};
 
 app.use(express.static('./public')); //Static files hosting
 app.use(express.static('./node_modules/bootstrap/dist')); //Static files hosting for bootstrap
@@ -62,16 +68,25 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 
 	socket.on('ask', function(question) {
 		currentQuestion = question;
+		results = {a:0, b:0, c:0, d:0};
 		io.sockets.emit('ask', currentQuestion);
 		console.log("Question Asked: '%s'", question.q)
 	});
+
+	socket.on('answer', function(payload) {
+		results[payload.choice]++;
+		io.sockets.emit('results', results);
+		console.log("Answer: '%s' - %j", payload.choice, results);
+	});
+
 
 	socket.emit('welcome', {
 		title: title,
 		audience: audience,
 		speaker: speaker.name,
 		questions: questions,
-		currentQuestion: currentQuestion
+		currentQuestion: currentQuestion,
+		results: results
 	});
 
 	connections.push(socket);  //keeping track of connected socked

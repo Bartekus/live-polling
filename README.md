@@ -38,8 +38,9 @@ Implementing a live react.js server and integrating few interesting technologies
 │   │   ├── /Attendance.js   # Attendance Module
 │   │   ├── /Display.js      # Display Module
 │   │   ├── /Header.js       # Header Source
-│   │   ├── /Join.js         # Join Form Source 
-│   │   └── /JoinSpeaker.js  # Join Form Source 
+│   │   ├── /Join.js         # Join Form Source
+│   │   ├── /JoinSpeaker.js  # JoinSpeaker Form Source
+│   │   └── /Questions.js    # Questions Module Source 
 │   ├── /App.js              # Main Loop Source
 │   ├── /Audience.js         # Default Page
 │   ├── /Board.js            # Score Board Path
@@ -52,6 +53,7 @@ Implementing a live react.js server and integrating few interesting technologies
 │   └── /style.css           # Style File
 ├── .gitignore               # Git Version Control Omission File
 ├── app-client               # Client Logic
+├── app-questions.js         # Server Questions JSON File
 ├── app-server               # Server Logic
 ├── live-polling.png         # Apps Picture
 ├── package.json             # NPM Dependencies Management File
@@ -84,6 +86,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.16 Added Questions module to the Speaker display view
 * 0.0.15 Added Attendance display for speaker view
 * 0.0.14 Added speaker form along with appropriate logic required
 * 0.0.13 Added socket connection persistence using sessionStorage/JSON

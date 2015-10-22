@@ -55,8 +55,8 @@
 	var APP = __webpack_require__(196);
 	var Audience = __webpack_require__(248);
 	var Speaker = __webpack_require__(251);
-	var Board = __webpack_require__(253);
-	var Http404 = __webpack_require__(254);
+	var Board = __webpack_require__(255);
+	var Http404 = __webpack_require__(256);
 
 	var routes = React.createElement(
 		Route,
@@ -23574,7 +23574,8 @@
 				title: '',
 				member: {},
 				audience: [],
-				speaker: ''
+				speaker: '',
+				questions: []
 			};
 		},
 
@@ -23585,7 +23586,7 @@
 			this.socket.on('welcome', this.updateState);
 			this.socket.on('joined', this.joined);
 			this.socket.on('audience', this.updateAudience);
-			this.socket.on('start', this.updateState);
+			this.socket.on('start', this.start);
 			this.socket.on('end', this.updateState);
 		},
 
@@ -23606,7 +23607,11 @@
 		},
 
 		disconnect: function disconnect() {
-			this.setState({ status: 'disconnected' });
+			this.setState({
+				status: 'disconnected',
+				title: 'disconnected',
+				speaker: ''
+			});
 		},
 
 		updateState: function updateState(serverState) {
@@ -31154,6 +31159,8 @@
 	var React = __webpack_require__(1);
 	var Display = __webpack_require__(249);
 	var JoinSpeaker = __webpack_require__(252);
+	var Attendance = __webpack_require__(253);
+	var Questions = __webpack_require__(254);
 
 	var Speaker = React.createClass({
 		displayName: 'Speaker',
@@ -31168,16 +31175,8 @@
 					React.createElement(
 						Display,
 						{ 'if': this.props.member.name && this.props.member.type === 'speaker' },
-						React.createElement(
-							'p',
-							null,
-							'Questions'
-						),
-						React.createElement(
-							'p',
-							null,
-							React.createElement(Attendance, { audience: this.props.audience })
-						)
+						React.createElement(Questions, { questions: this.props.questions }),
+						React.createElement(Attendance, { audience: this.props.audience })
 					),
 					React.createElement(
 						Display,
@@ -31250,6 +31249,112 @@
 /* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Attendance = React.createClass({
+		displayName: "Attendance",
+
+		addMemberRow: function addMemberRow(member, i) {
+			return React.createElement(
+				"tr",
+				{ key: i },
+				React.createElement(
+					"td",
+					null,
+					member.name
+				),
+				React.createElement(
+					"td",
+					null,
+					member.id
+				)
+			);
+		},
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"h2",
+					null,
+					"Attendance - ",
+					this.props.audience.length,
+					" members"
+				),
+				React.createElement(
+					"table",
+					{ className: "table table-striped" },
+					React.createElement(
+						"thead",
+						null,
+						React.createElement(
+							"tr",
+							null,
+							React.createElement(
+								"th",
+								null,
+								"Audience Member"
+							),
+							React.createElement(
+								"th",
+								null,
+								"Socket ID"
+							)
+						)
+					),
+					React.createElement(
+						"tbody",
+						null,
+						this.props.audience.map(this.addMemberRow)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = Attendance;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Questions = React.createClass({
+		displayName: "Questions",
+
+		addQuestion: function addQuestion(question, i) {
+			return React.createElement(
+				"div",
+				{ key: i, className: "col-xs-12 col-sm-6 col-md-3" },
+				React.createElement(
+					"span",
+					null,
+					question.q
+				)
+			);
+		},
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				{ id: "questions", className: "row" },
+				this.props.questions.map(this.addQuestion)
+			);
+		}
+	});
+
+	module.exports = Questions;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(1);
@@ -31269,7 +31374,7 @@
 	module.exports = Board;
 
 /***/ },
-/* 254 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

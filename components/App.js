@@ -13,7 +13,8 @@ var APP = React.createClass({
 			title: '',
 			member: {},
 			audience: [],
-			speaker: ''
+			speaker: '',
+			questions: []
 		}
 	},
 
@@ -24,7 +25,7 @@ var APP = React.createClass({
 		this.socket.on('welcome', this.updateState);
 		this.socket.on('joined', this.joined);
 		this.socket.on('audience', this.updateAudience);
-		this.socket.on('start', this.updateState);
+		this.socket.on('start', this.start);
 		this.socket.on('end', this.updateState);
 	},
 
@@ -44,7 +45,11 @@ var APP = React.createClass({
 	},
 
 	disconnect() {
-		this.setState({ status: 'disconnected' });
+		this.setState({
+			status: 'disconnected',
+			title: 'disconnected',
+			speaker: ''
+		});
 	},
 
 	updateState(serverState) {

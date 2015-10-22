@@ -35,6 +35,7 @@ Implementing a live react.js server and integrating few interesting technologies
 .
 ├── /components/             # Build Directory
 │   ├── /parts/              # Parts Directory
+│   │   ├── /Ask.js          # Ask Module
 │   │   ├── /Attendance.js   # Attendance Module
 │   │   ├── /Display.js      # Display Module
 │   │   ├── /Header.js       # Header Source
@@ -86,6 +87,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.18 Added Attendants question answering functionality
 * 0.0.17 Added Speakers functionality to emit selected question 
 * 0.0.16 Added Questions module to the Speaker display view
 * 0.0.15 Added Attendance display for speaker view

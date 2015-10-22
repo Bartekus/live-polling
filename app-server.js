@@ -3,6 +3,7 @@ var app = express();
 
 var connections = [];
 var title = 'Untitled Presentation';
+var audience = [];
 
 app.use(express.static('./public')); //Static files hosting
 app.use(express.static('./node_modules/bootstrap/dist')); //Static files hosting for bootstrap
@@ -23,7 +24,9 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 			id: this.id,
 			name: payload.name
 		}; //associating the socket id with the join payload
-		this.emit('joined', newMember); //emits this event back to clients listening
+		this.emit('joined', newMember); //emits this event back to socket (client) performing the join
+		audience.push(newMember); //adding newMember to the audience
+		io.sockets.emit('audience', audience);  //broadcasts the change in audience state back to all sockets (clients)
 		console.log("Audience Joined: %s", payload.name);
 	});
 

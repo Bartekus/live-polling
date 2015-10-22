@@ -73,6 +73,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.11 Added audience count and enabled saving its state
 * 0.0.10 Fixed typo error with App and added a callback for client to change the state of the Audience based on join function
 * 0.0.9 Added emitter for use by the Join Form module /App and app-server have been configured to reflect this 
 * 0.0.8 Added Join form module for use by Display 

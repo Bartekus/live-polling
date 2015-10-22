@@ -14,7 +14,15 @@ Advance React.js app for live polling that utilizing technologies such as webpac
 ## Code Example
 
 ```
+var React = require('react');
 
+var Display = React.createClass({
+	render() {
+		return (this.props.if) ? <div>{this.props.children}</div> : null;
+	}
+});
+
+module.exports = Display;
 ```
 
 ## Motivation
@@ -25,27 +33,29 @@ Implementing a live react.js server and integrating few interesting technologies
 
 ```
 .
-├── /components/         # Build Directory
-│   ├── /parts/          # Parts Directory
-│   │   ├── /Display.js  # Display Module
-│   │   ├── /Header.js   # Header Source
-│   │   └── /Join.js     # Join Form Source 
-│   ├── /App.js          # App's Main Source
-│   ├── /Audience.js     # App's Default Path Source
-│   ├── /Board.js        # App's Score Board Path Source
-│   └── /Speaker.js      # App's Speaker Path Source
-├── /node_modules        # Dependencies Source
-├── /public/             # Static Files Directory
-│   ├── /bundle.js       # App's Bundled JavaScript
-│   ├── /index.html      # App's Main Entry
-│   └── /style.css       # App's Style File
-├── .gitignore           # Git Version Control Omission File
-├── app-client           # Client Logic
-├── app-server           # Server Logic
-├── live-polling.png     # App's Picture
-├── package.json         # NPM Dependencies Management File
-├── README.md            # This File
-└── webpack.config.js    # Webpack's Config File
+├── /components/             # Build Directory
+│   ├── /parts/              # Parts Directory
+│   │   ├── /Display.js      # Display Module
+│   │   ├── /Header.js       # Header Source
+│   │   ├── /Join.js         # Join Form Source 
+│   │   └── /JoinSpeaker.js  # Join Form Source 
+│   ├── /App.js              # Main Loop Source
+│   ├── /Audience.js         # Default Page
+│   ├── /Board.js            # Score Board Path
+│   ├── /Http404.js          # 404 Page 
+│   └── /Speaker.js          # Speaker Page
+├── /node_modules            # Dependencies Source
+├── /public/                 # Static Files Directory
+│   ├── /bundle.js           # Bundled JavaScript
+│   ├── /index.html          # Main Entry
+│   └── /style.css           # Style File
+├── .gitignore               # Git Version Control Omission File
+├── app-client               # Client Logic
+├── app-server               # Server Logic
+├── live-polling.png         # Apps Picture
+├── package.json             # NPM Dependencies Management File
+├── README.md                # This File
+└── webpack.config.js        # Webpack's Config File
 ```
 
 ## Installation
@@ -73,6 +83,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.14 Added speaker form along with appropriate logic required
 * 0.0.13 Added socket connection persistence using sessionStorage/JSON
 * 0.0.12 Implemented audience removal using underscore and added updating of client audience state with it
 * 0.0.11 Added audience count and enabled saving its state

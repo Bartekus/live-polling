@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var Join = React.createClass({
 
@@ -17,7 +18,7 @@ var Join = React.createClass({
 				       placeholder="enter your full name..."
 				       required />
 				<button className="btn btn-primary">Join</button>
-
+				<Link to="/speaker">Join as speaker</Link>
 			</form>
 		);
 	}

@@ -1,4 +1,5 @@
 var express = require('express');
+var _ = require('underscore');
 var app = express();
 
 var connections = [];
@@ -14,6 +15,15 @@ var io = require('socket.io').listen(server); //socket.io with chain listen and 
 io.sockets.on('connection', function(socket) {  //callback function for connection logging
 
 	socket.once('disconnect', function() {  //callback function for disconnect logging
+
+		var member = _.findWhere(audience, { id: this.id }); //searches and assigns disconnected socket id to member variable
+
+		if (member) {
+			audience.splice(audience.indexOf(member), 1); //removes the disconnected socket from audience
+			io.sockets.emit('audience', audience); //broadcasts new changes in audience to all sockets
+			console.log("%s has left. (%s audience members)", member.name, audience.length);
+		}
+
 		connections.splice(connections.indexOf(socket), 1); //removing the socket from connections array
 		socket.disconnect();  //just in case so that connection is purged from server
 		console.log("Disconnected: %s sockets remaining.", connections.length); //log the leftovers connections

@@ -86,6 +86,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.17 Added Speakers functionality to emit selected question 
 * 0.0.16 Added Questions module to the Speaker display view
 * 0.0.15 Added Attendance display for speaker view
 * 0.0.14 Added speaker form along with appropriate logic required

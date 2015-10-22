@@ -14,7 +14,8 @@ var APP = React.createClass({
 			member: {},
 			audience: [],
 			speaker: '',
-			questions: []
+			questions: [],
+			currentQuestion: false
 		}
 	},
 
@@ -27,6 +28,7 @@ var APP = React.createClass({
 		this.socket.on('audience', this.updateAudience);
 		this.socket.on('start', this.start);
 		this.socket.on('end', this.updateState);
+		this.socket.on('ask', this.ask);
 	},
 
 	emit(eventName, payload) {
@@ -72,6 +74,9 @@ var APP = React.createClass({
 		this.setState(presentation);
 	},
 
+	ask(question) {
+	  	this.setState({ currentQuestion: question });
+	},
 
 	render() { // instead of passing individual states as with the header, we'll pass the whole state using {...this.state}
 		return (

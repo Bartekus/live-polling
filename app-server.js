@@ -7,6 +7,7 @@ var title = 'Untitled Presentation';
 var audience = [];
 var speaker = {};
 var questions = require('./app-questions');
+var currentQuestion = false;
 
 app.use(express.static('./public')); //Static files hosting
 app.use(express.static('./node_modules/bootstrap/dist')); //Static files hosting for bootstrap
@@ -59,11 +60,18 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 		console.log("Presentation Started: '%s' by %s", title, speaker.name);
 	}); //associating the start payload socket id with the speaker
 
+	socket.on('ask', function(question) {
+		currentQuestion = question;
+		io.sockets.emit('ask', currentQuestion);
+		console.log("Question Asked: '%s'", question.q)
+	});
+
 	socket.emit('welcome', {
 		title: title,
 		audience: audience,
 		speaker: speaker.name,
-		questions: questions
+		questions: questions,
+		currentQuestion: currentQuestion
 	});
 
 	connections.push(socket);  //keeping track of connected socked

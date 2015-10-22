@@ -73,6 +73,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.13 Added socket connection persistence using sessionStorage/JSON
 * 0.0.12 Implemented audience removal using underscore and added updating of client audience state with it
 * 0.0.11 Added audience count and enabled saving its state
 * 0.0.10 Fixed typo error with App and added a callback for client to change the state of the Audience based on join function

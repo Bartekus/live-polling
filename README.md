@@ -35,6 +35,7 @@ Implementing a live react.js server and integrating few interesting technologies
 .
 ├── /components/             # Build Directory
 │   ├── /parts/              # Parts Directory
+│   │   ├── /Attendance.js   # Attendance Module
 │   │   ├── /Display.js      # Display Module
 │   │   ├── /Header.js       # Header Source
 │   │   ├── /Join.js         # Join Form Source 
@@ -83,6 +84,7 @@ Use to allow speakers to poll audience members during presentations, meeting or 
 
 ## History
 
+* 0.0.15 Added Attendance display for speaker view
 * 0.0.14 Added speaker form along with appropriate logic required
 * 0.0.13 Added socket connection persistence using sessionStorage/JSON
 * 0.0.12 Implemented audience removal using underscore and added updating of client audience state with it

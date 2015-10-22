@@ -23,6 +23,11 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 			audience.splice(audience.indexOf(member), 1); //removes the disconnected socket from audience
 			io.sockets.emit('audience', audience); //broadcasts new changes in audience to all sockets
 			console.log("%s has left. (%s audience members)", member.name, audience.length);
+		} else if (this.id === speaker.id) {
+			console.log("%s has left. '%s' is over.", speaker.name, title);
+			speaker = {};
+			title = "Untitled Presentation";
+			io.sockets.emit('end', { title: title, speaker: '' });
 		}
 
 		connections.splice(connections.indexOf(socket), 1); //removing the socket from connections array
@@ -49,11 +54,14 @@ io.sockets.on('connection', function(socket) {  //callback function for connecti
 		speaker.type = 'speaker';
 		title = payload.title;
 		this.emit('joined', speaker);
+		io.sockets.emit('start', { title: title, speaker: speaker.name });
 		console.log("Presentation Started: '%s' by %s", title, speaker.name);
 	}); //associating the start payload socket id with the speaker
 
 	socket.emit('welcome', {
-		title: title
+		title: title,
+		audience: audience,
+		speaker: speaker.name
 	});
 
 	connections.push(socket);  //keeping track of connected socked

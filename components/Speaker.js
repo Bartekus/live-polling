@@ -10,7 +10,7 @@ var Speaker = React.createClass({
 
 					<Display if={this.props.member.name && this.props.member.type === 'speaker'}>
 						<p>Questions</p>
-						<p>Attendance</p>
+						<p><Attendance audience={this.props.audience} /></p>
 					</Display>
 
 					<Display if={!this.props.member.name}>
